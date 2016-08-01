@@ -4,10 +4,10 @@
 http/localhost:8080/contacts
 
 ##REST calls-
-list contacts-
-curl http://localhost:8080/contactlist
+###list contacts-
+{code}curl http://localhost:8080/contactlist{code}
 
-add contact-
+###add contact-
  curl -X POST -F 'name=davidwalsh' -F 'email=something' -F 'profession=cook' http://localhost:8080/contacts/createUser
  
 update contact-
