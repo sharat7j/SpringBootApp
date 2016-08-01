@@ -1,0 +1,16 @@
+<html layout:decorator="layout">
+    <div layout:fragment="content">
+        <form method="post" name="comment_form" id="comment_form" action="/contacts/update" role="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <textarea rows="1"  class="form-control" id="name" name="name" th:text="${contact.name}"/>
+                <label for="email">Email</label>
+                <textarea rows="1"  class="form-control" id="email" name="email" th:text="${contact.email}"/>
+                <label for="profession">Profession</label>
+                <textarea rows="1"  class="form-control" id="profession" name="profession" th:text="${contact.profession}"/>
+            </div>
+            <input type="hidden" id="post_id" rows="5" class="form-control" name="contact_id" th:value="${contact.id}"/>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</html>

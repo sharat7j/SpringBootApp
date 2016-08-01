@@ -1,0 +1,15 @@
+<html layout:decorator="layout">
+    <div layout:fragment="content">
+        <form method="post" name="comment_form" id="comment_form" action="/contacts/create" role="form" enctype="application/json">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <textarea rows="1"  class="form-control" id="name" name="name"/>
+                <label for="email">Email</label>
+                <textarea  rows="1" class="form-control" id="email" name="email"/>
+                <label for="profession">profession</label>
+                <textarea rows="1" class="form-control" id="profession" name="profession"/>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</html>

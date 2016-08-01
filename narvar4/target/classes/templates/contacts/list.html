@@ -1,0 +1,41 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+    <a class="btn btn-primary" href="/contacts/new">Add new contact</a>
+
+    <table class="table table-striped" id="contacts_list">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Profession</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="contact : ${contacts}">
+            <td class="message" data-th-text="${contact.name}"></td>
+<td class="email" data-th-text="${contact.email}"></td>
+<td class="profession" data-th-text="${contact.profession}"></td>
+            <td>
+                <a th:href="@{'/contacts/{id}/delete'(id=${contact.id})}" class="delete" th:attr="name=${contact.name}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </span>
+                </a>
+            </td>
+
+            <td>
+                <a th:href="@{'/contacts/{id}/edit'(id=${contact.id})}" class="edit" >
+                    <span class="fa-stack">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </span>
+
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
