@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 MONITOR=$(free | grep Mem)
 TOTAL_MEM=$(echo $MONITOR | awk '{ print $2 }')
 MEM_FREE=$(echo $MONITOR | awk '{ print $4 }')

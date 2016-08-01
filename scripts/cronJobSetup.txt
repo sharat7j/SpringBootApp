@@ -1,0 +1,6 @@
+//setting up scripts as cron job. (cron should be installed)
+use # crontab -e
+entry to be added-
+*/5 * * * * /{path-to-file}/{shell-script-file}
+
+
