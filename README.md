@@ -17,6 +17,6 @@ curl -X POST -F 'name=davidwalsh' -F 'email=something' -F 'profession=chef' http
 curl http://localhost:8080/contacts/deleteUser/davidwalsh
 
 ##Scripts
-Located in scripts file
+Located in scripts folder
 
 
