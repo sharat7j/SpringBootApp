@@ -1,5 +1,5 @@
 # SpringBootApp
-run createContactTable.sql(under resources) in postgres before running app. 
+run createContactTable.sql(under src/main/resources) in postgres before running app. 
 
 ## URL to run app-
 http/localhost:8080/contacts
