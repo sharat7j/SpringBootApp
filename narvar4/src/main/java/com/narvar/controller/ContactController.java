@@ -1,6 +1,9 @@
 package com.narvar.controller;
 import com.narvar.domain.Contacts;
 import com.narvar.domain.ContactRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -33,10 +36,18 @@ public class ContactController {
         return new ModelAndView("redirect:/contacts");
     }
     
-    @RequestMapping(value = "/{id}/deleteUser", method = RequestMethod.GET)
-    public ResponseEntity<?> deleteUser(@PathVariable long id) {
-    	repository.delete(id);
-    	return new ResponseEntity<>(HttpStatus.OK);
+    @RequestMapping(value = "/deleteUser/{name}", method = RequestMethod.GET)
+    public ResponseEntity<?> deleteUser(@PathVariable String name) {
+    	List<Contacts> contacts = repository.findByName(name);
+        if(contacts!=null){
+        	Contacts contact=contacts.get(0);
+        
+        	repository.delete(contact);
+        	return new ResponseEntity<>(HttpStatus.OK);
+        }
+        else {
+        	return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping(value="/new", method = RequestMethod.GET)
@@ -69,13 +80,23 @@ public class ContactController {
     }
 
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public ResponseEntity<?> updateUser(@RequestParam("contact_id") long id,
+    public ResponseEntity<?> updateUser(
     		@RequestParam("name") String name,@RequestParam("email") String email,@RequestParam("profession") String profession) {
-        Contacts contacts = repository.findOne(id);
-        contacts.setEmail(email);
-        contacts.setName(name);
-        contacts.setProfession(profession);
-        return new ResponseEntity<>(repository.save(contacts), HttpStatus.CREATED);
+        List<Contacts> contacts = repository.findByName(name);
+        Contacts contact=contacts.get(0);
+        if(contacts!=null){
+        if(email!=null){
+        	contact.setEmail(email);
+        }
+        if(name!=null){
+        	contact.setName(name);
+        }
+        if(profession!=null){
+        	contact.setProfession(profession);
+        }
+        return new ResponseEntity<>(repository.save(contact), HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     
     
