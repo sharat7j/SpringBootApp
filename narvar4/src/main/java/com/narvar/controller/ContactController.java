@@ -36,7 +36,7 @@ public class ContactController {
         return new ModelAndView("redirect:/contacts");
     }
     
-    @RequestMapping(value = "/deleteUser/{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{name}/deleteUser", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteUser(@PathVariable String name) {
     	List<Contacts> contacts = repository.findByName(name);
         if(contacts!=null){
