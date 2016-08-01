@@ -1,6 +1,6 @@
 //setting up scripts as cron job. (cron should be installed)
 use # crontab -e
-entry to be added-
+entry to be added to run every 5 min-
 */5 * * * * /{path-to-file}/{shell-script-file}
 
 
