@@ -81,8 +81,8 @@ public class ControllerTest {
 	@Test
 	public void shouldCreateContacts() throws Exception {
 		
-		// create payload
-		RestTemplate restTemplate = new RestTemplate();
+	// create payload
+	RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/contacts/createUser";
         Map<String, String> map = new HashMap<String, String>();
         restTemplate.setMessageConverters(Arrays.asList(new StringHttpMessageConverter(), new FormHttpMessageConverter()));
@@ -99,8 +99,8 @@ public class ControllerTest {
 	@Test
 	public void shouldUpdateContacts() throws Exception {
 		
-		// create payload
-		RestTemplate restTemplate = new RestTemplate();
+	// create payload
+	RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/contacts/updateUser";
         Map<String, String> map = new HashMap<String, String>();
         restTemplate.setMessageConverters(Arrays.asList(new StringHttpMessageConverter(), new FormHttpMessageConverter()));
