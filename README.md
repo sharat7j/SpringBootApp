@@ -14,7 +14,7 @@ curl http://localhost:8080/contactlist
 curl -X POST -F 'name=davidwalsh' -F 'email=something' -F 'profession=chef' http://localhost:8080/contacts/updateUser
 
 ###delete contact-
-curl http://localhost:8080/contacts/deleteUser/davidwalsh
+curl -X DELETE http://localhost:8080/contacts/davidwalsh/deleteUser
 
 ##Scripts
 Located in scripts folder
