@@ -43,7 +43,7 @@ public class ContactController {
         	Contacts contact=contacts.get(0);
         
         	repository.delete(contact);
-        	return new ResponseEntity<>(HttpStatus.OK);
+        	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         else {
         	return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
